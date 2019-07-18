@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log('Testing if this code actually works')
     console.log(this.loginForm.value)
+    
   }
 
 }
