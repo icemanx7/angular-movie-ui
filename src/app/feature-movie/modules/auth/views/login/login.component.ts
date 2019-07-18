@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as auth from '../../reducers/auth.reducer';
+import { Login } from '../../actions/login-page.actions';
+import { UserLogin } from '../../models/login-page.models';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +17,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  constructor() { }
+  constructor(public store: Store<auth.State>) { }
 
   ngOnInit() {
   }
@@ -21,7 +25,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log('Testing if this code actually works')
     console.log(this.loginForm.value)
-    
+    const loginValue = this.loginForm.value as UserLogin;
+    this.store.dispatch(Login(loginValue));
   }
 
 }
