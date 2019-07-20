@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './feature-movie/modules/auth/auth.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesModule } from './feature-movie/modules/movies/movies.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    MoviesModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
