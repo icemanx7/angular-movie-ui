@@ -15,7 +15,7 @@ export class AuthEffects {
         ofType(authActions.Login),
         mergeMap((payload: UserLogin) => this.loginService.login(payload)
             .pipe(
-                map(response => authActions.LoginSuccess),
+                map(response => authActions.LoginSuccess()),
                 catchError(() => EMPTY))
             ))
     );
