@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
+  private _baseUrl = '/login';
   constructor(private http: HttpClient) { }
 
   login(userLogin: UserLogin): Observable<UserLoginResponse> {
-    console.log('richard here', userLogin)
-    return this.http.post<UserLoginResponse>('/login', { username:userLogin.username, password: userLogin.password });
+    return this.http.post<UserLoginResponse>(this._baseUrl, { username:userLogin.username, password: userLogin.password });
   }
 }
