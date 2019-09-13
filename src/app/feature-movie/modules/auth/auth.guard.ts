@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
   constructor(private store: Store<authSelects.AppState>, private router: Router) { }
 
   canActivate(): Observable<boolean> {
-    return this.store.pipe(select(authSelects.selectIsLogginIn))
+    return this.store.pipe(select(authSelects.getIsLoggedIn))
       .pipe(map((isLoggedIn) => {
         if (isLoggedIn) {
           return true;
