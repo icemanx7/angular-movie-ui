@@ -14,8 +14,8 @@ import { httpInterceptorProviders } from './interceptors';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer.reducer }),
-    EffectsModule.forRoot([AuthEffects])
+    StoreModule.forFeature('auth', authReducer.reducer),
+    EffectsModule.forFeature([AuthEffects])
   ],
   exports: [
     LoginComponent

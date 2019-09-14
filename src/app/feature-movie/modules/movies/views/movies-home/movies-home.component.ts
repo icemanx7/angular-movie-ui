@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as auth from '../../../auth/reducers';
+import { LoadMoviesList } from '../../actions/movie.actions';
 
 @Component({
   selector: 'app-movies-home',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public store: Store<auth.AppState>
+  ) { }
 
   ngOnInit() {
+    this.store.dispatch(LoadMoviesList());
   }
 
 }

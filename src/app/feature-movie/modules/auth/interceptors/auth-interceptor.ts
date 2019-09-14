@@ -19,6 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
           console.log('intercepted request: ', authReq);
           return next.handle(authReq);
         }
+          return next.handle(req);
       })
     )
   }

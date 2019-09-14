@@ -6,6 +6,9 @@ import { AuthModule } from './feature-movie/modules/auth/auth.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesModule } from './feature-movie/modules/movies/movies.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { MoviesModule } from './feature-movie/modules/movies/movies.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
-    MoviesModule,
+
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    RouterModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
+    AuthModule,
+    MoviesModule,
     HttpClientModule,
   ],
   providers: [],
