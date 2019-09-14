@@ -6,6 +6,7 @@ import * as authReducer from './reducers/auth.reducer';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './effects/auth.effects';
+import { httpInterceptorProviders } from './interceptors';
 
 
 @NgModule({
@@ -16,6 +17,11 @@ import { AuthEffects } from './effects/auth.effects';
     StoreModule.forRoot({ auth: authReducer.reducer }),
     EffectsModule.forRoot([AuthEffects])
   ],
-  exports: [LoginComponent]
+  exports: [
+    LoginComponent
+  ],
+  providers: [
+    httpInterceptorProviders
+  ]
 })
 export class AuthModule { }
