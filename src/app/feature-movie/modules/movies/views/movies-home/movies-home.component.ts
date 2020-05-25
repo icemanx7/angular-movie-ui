@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import * as auth from '../../../auth/reducers';
+import * as fromMovies from '../../../movies/reducers';
 import { LoadMoviesList } from '../../actions/movie.actions';
 
 @Component({
@@ -16,6 +17,7 @@ export class MoviesHomeComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(LoadMoviesList());
+    this.store.pipe(select(fromMovies.getMovies)).subscribe(movies => console.log('THE MOVIES: ', movies))
   }
 
 }

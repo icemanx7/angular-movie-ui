@@ -3,3 +3,7 @@ export interface Movie {
     title: string;
     year: string;
 }
+
+export interface Movies {
+    movies: Movie[];
+}

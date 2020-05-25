@@ -1,4 +1,4 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
 import * as MovieReducer from './movie.reducer';
 
 
@@ -6,16 +6,18 @@ export interface AppState {
   movies: MovieReducer.State;
 }
 
-export const selectFeature = (state: AppState) => state.movies;
+export const getMovieState = createFeatureSelector<AppState>('movies');
 
-export const getIsMoviesLoading = createSelector(
-  selectFeature,
-  (state: MovieReducer.State) => state.loading
-);
+// export const selectFeature = (state: AppState) => state.movies;
+
+// export const getIsMoviesLoading = createSelector(
+//   selectFeature,
+//   (state: MovieReducer.State) => state.loading
+// );
 
 export const getMovies = createSelector(
-  selectFeature,
-  (state: MovieReducer.State) => state.movieList
+  getMovieState,
+  (state) => state.movies
 );
 
 // export const getJwtToken = createSelector(

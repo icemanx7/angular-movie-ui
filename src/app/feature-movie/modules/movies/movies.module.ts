@@ -12,7 +12,7 @@ import * as movieReducer from './reducers/movie.reducer';
   declarations: [MoviesHomeComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('movie', movieReducer.reducer),
+    StoreModule.forFeature('movies', movieReducer.reducer),
     EffectsModule.forFeature([MovieEffects])
   ]
 })
