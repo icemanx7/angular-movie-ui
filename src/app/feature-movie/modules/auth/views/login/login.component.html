@@ -1,15 +1,26 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div fxLayout="row" fxFlex="30%">
+</div>
+<mat-card fxFlex="40%" class="login-form">
+    <div fxLayout="column">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    <label>
-        Username:
-        <input type="text" formControlName="username">
-    </label>
+            <div fxLayout="row">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+            </div>
 
-    <label>
-        Password:
-        <input type="password" formControlName="password">
-    </label>
+            <div fxLayout="row">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" formControlName="password">
+                </mat-form-field>
+            </div>
 
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+            <button mat-button type="submit" [disabled]="!loginForm.valid">Submit</button>
 
-</form>
+        </form>
+    </div>
+</mat-card>
+
+<div fxLayout="row" fxFlex="20%">
+</div>

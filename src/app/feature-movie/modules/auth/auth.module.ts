@@ -7,6 +7,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './effects/auth.effects';
 import { httpInterceptorProviders } from './interceptors';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule, MatCardModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -14,6 +18,11 @@ import { httpInterceptorProviders } from './interceptors';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
     StoreModule.forFeature('auth', authReducer.reducer),
     EffectsModule.forFeature([AuthEffects])
   ],

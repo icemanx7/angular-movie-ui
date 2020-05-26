@@ -9,6 +9,10 @@ import { MoviesModule } from './feature-movie/modules/movies/movies.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    // MatInputModule,
+    // MatFormFieldModule,
+    // MatSliderModule,
+    FlexLayoutModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([]),
@@ -27,6 +34,7 @@ import { RouterModule } from '@angular/router';
     AuthModule,
     MoviesModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
