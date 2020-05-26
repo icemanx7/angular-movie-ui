@@ -5,19 +5,23 @@ export interface State {
     loggedIn: boolean;
     loading: boolean;
     jwtToken: string;
+    name: string;
+    displayName: string
 }
 
 export const initialState: State = {
     loggedIn: false,
     loading: false,
-    jwtToken: null
+    jwtToken: null,
+    name: null,
+    displayName: null
 };
 
 
 const scoreboardReducer = createReducer(
     initialState,
     on(AuthActions.Login, state => ({ ...state, loading: true })),
-    on(AuthActions.LoginSuccess, ( state , action ) => ({ ...state, loading: false, loggedIn: true, jwtToken: action.jwtToken  })),
+    on(AuthActions.LoginSuccess, (state, action) => ({ ...state, loading: false, loggedIn: true, jwtToken: action.jwtToken, displayName: action.displayName })),
 );
 
 export function reducer(state: State | undefined, action: Action) {
