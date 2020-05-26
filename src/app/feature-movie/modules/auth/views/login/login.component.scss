@@ -12,6 +12,12 @@
       margin: 40px;
   }
 
+  .login-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
   // Add gradient background formula
   .bg-formula {
 

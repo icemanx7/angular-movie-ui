@@ -10,8 +10,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule, MatIconModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -21,10 +22,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MatInputModule,
-    // MatFormFieldModule,
-    // MatSliderModule,
+    MatToolbarModule,
     FlexLayoutModule,
+    MatIconModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([]),
