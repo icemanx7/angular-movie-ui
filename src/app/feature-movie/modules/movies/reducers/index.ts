@@ -3,10 +3,10 @@ import * as MovieReducer from './movie.reducer';
 
 
 export interface AppState {
-  movies: MovieReducer.State;
+  movies: MovieReducer.MovieState;
 }
 
-export const getMovieState = createFeatureSelector<AppState>('movies');
+export const getMovieState = createFeatureSelector<MovieReducer.MovieState>('movies');
 
 // export const selectFeature = (state: AppState) => state.movies;
 
@@ -17,7 +17,12 @@ export const getMovieState = createFeatureSelector<AppState>('movies');
 
 export const getMovies = createSelector(
   getMovieState,
-  (state) => state.movies
+  (state) => state.movieList
+);
+
+export const getIsLoadingMovies = createSelector(
+  getMovieState,
+  (state) => state.loading
 );
 
 // export const getJwtToken = createSelector(

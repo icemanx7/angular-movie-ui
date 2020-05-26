@@ -7,6 +7,7 @@
         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-title-group>
     <!-- </mat-card-header> -->
+    <mat-card-content>
+        <app-movie-table [movieList]="(movies$ | async)?.movies"></app-movie-table>
+    </mat-card-content>
 </mat-card>
-
-<app-movie-table></app-movie-table>

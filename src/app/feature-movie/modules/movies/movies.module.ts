@@ -6,7 +6,7 @@ import { MovieEffects } from './effects/movies.effects';
 import { EffectsModule } from '@ngrx/effects';
 import * as movieReducer from './reducers/movie.reducer';
 import { MovieTableComponent } from './components/movie-table/movie-table.component';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatPaginatorModule, MatCardModule, MatTableModule } from '@angular/material';
 
 
 
@@ -17,7 +17,9 @@ import { MatButtonModule, MatCardModule } from '@angular/material';
     StoreModule.forFeature('movies', movieReducer.reducer),
     EffectsModule.forFeature([MovieEffects]),
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MoviesModule { }
