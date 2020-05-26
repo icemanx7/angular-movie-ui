@@ -1,13 +1,31 @@
-<div>
-    <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <span class="space-right"></span>
-            <!-- <mat-icon mat-card-avatar aria-hidden="false" aria-label="notifications">email</mat-icon> -->
+<mat-sidenav-container class="side-nav">
+    <mat-sidenav class="side-nav-pane" #sidenav mode="side" [opened]="loggedIn">
+        Sidenav content
+    </mat-sidenav>
 
-            <mat-icon aria-hidden="false" aria-label="notifications">email</mat-icon>
-        </mat-toolbar-row>
-    </mat-toolbar>
-</div>
-<div>
-    <router-outlet></router-outlet>
-</div>
+    <mat-sidenav-content>
+        <!-- <p>
+            <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+        </p>
+        <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+        <p>Events:</p>
+        <div class="example-events">
+            <div *ngFor="let e of events">{{e}}</div>
+        </div> -->
+
+        <div>
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                    <mat-icon *ngIf="loggedIn" aria-hidden="false" aria-label="menu">menu</mat-icon>
+                    <span class="space-right"></span>
+                    <!-- <mat-icon mat-card-avatar aria-hidden="false" aria-label="notifications">email</mat-icon> -->
+
+                    <mat-icon aria-hidden="false" aria-label="notifications">email</mat-icon>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

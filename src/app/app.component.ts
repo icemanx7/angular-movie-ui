@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-movie-ui';
+
+  get loggedIn(): boolean {
+    return false;
+  }
 }

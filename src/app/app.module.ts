@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule } from '@angular/material';
 
 
 
@@ -25,6 +25,7 @@ import { MatToolbarModule, MatIconModule } from '@angular/material';
     MatToolbarModule,
     FlexLayoutModule,
     MatIconModule,
+    MatSidenavModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([]),
