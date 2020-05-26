@@ -25,17 +25,4 @@ export class MovieEffects {
                 catchError(() => EMPTY))
         ))
     );
-
-    // @Effect()
-    // onGetViewAmendmentData$: Observable<Action> = this.actions$.pipe(
-    //     ofType(movieActions.LoadMoviesList),
-    //     mergeMap(() =>
-    //         this.movieService.loadMoviesList()
-    //             .pipe(
-    //                 map((response: any) => (new movieActions.LoadMoviesListSuccess(response))),
-    //                 catchError(error => of(new movieActions.LoadMoviesListFailed()))
-    //             )
-    //     )
-    // );
-
 }

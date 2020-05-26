@@ -1,26 +1,23 @@
 <mat-sidenav-container class="side-nav">
-    <mat-sidenav class="side-nav-pane" #sidenav mode="side" [opened]="loggedIn">
+    <mat-sidenav class="side-nav-pane" #sidenav mode="side" [(opened)]="sideNaveOpened">
         Sidenav content
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <!-- <p>
-            <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
-        </p>
-        <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-        <p>Events:</p>
-        <div class="example-events">
-            <div *ngFor="let e of events">{{e}}</div>
-        </div> -->
-
         <div>
             <mat-toolbar color="primary">
                 <mat-toolbar-row>
-                    <mat-icon *ngIf="loggedIn" aria-hidden="false" aria-label="menu">menu</mat-icon>
+                    <!-- TODO: need to style this -->
+                    <button class="mat-mini-fab" *ngIf="isLoggedIn | async" (click)="sidenav.toggle()" mat-icon-button
+                        aria-label="Button to open side nav">
+                        <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon>
+                    </button>
                     <span class="space-right"></span>
                     <!-- <mat-icon mat-card-avatar aria-hidden="false" aria-label="notifications">email</mat-icon> -->
-
-                    <mat-icon *ngIf="loggedIn" aria-hidden="false" aria-label="notifications">email</mat-icon>
+                    <button class="mat-mini-fab" *ngIf="isLoggedIn | async" mat-icon-button
+                        aria-label="button to view notifications">
+                        <mat-icon aria-hidden="false" aria-label="email">email</mat-icon>
+                    </button>
                 </mat-toolbar-row>
             </mat-toolbar>
         </div>

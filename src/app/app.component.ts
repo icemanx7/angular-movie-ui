@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import * as auth from './feature-movie/modules/auth/reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'angular-movie-ui';
 
-  get loggedIn(): boolean {
-    return false;
+  sideNaveOpened: boolean;
+
+  isLoggedIn: Observable<boolean> = this.store.pipe(select(auth.getIsLoggedIn));
+
+  constructor(
+    public store: Store<auth.AppState>
+  ) { }
+
+  ngOnInit(): void {
+
   }
+
 }
