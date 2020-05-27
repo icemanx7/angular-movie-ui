@@ -14,7 +14,7 @@ export class AuthEffects {
         private loginService: LoginService,
         private actions$: Actions,
         private router: Router
-        ) { }
+    ) { }
 
     login$ = createEffect(() => this.actions$.pipe(
         ofType(authActions.Login),
@@ -27,7 +27,7 @@ export class AuthEffects {
 
     loadMoviesHome$ = createEffect(() => this.actions$.pipe(
         ofType(authActions.LoginSuccess),
-        tap(() => this.router.navigate(['movies-home']))
+        tap(() => this.router.navigate(['home']))
     ),
-    { dispatch: false });
+        { dispatch: false });
 }
