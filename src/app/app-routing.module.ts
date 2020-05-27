@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '', component: LoginComponent
   },
   {
-    path: 'movies-home', component: MoviesHomeComponent,
+    path: 'home', component: MoviesHomeComponent,
     canActivate: [AuthGuard]
   }
 ];

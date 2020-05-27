@@ -1,6 +1,8 @@
 <mat-sidenav-container class="side-nav">
     <mat-sidenav class="side-nav-pane" #sidenav mode="side" [(opened)]="sideNaveOpened">
-        Sidenav content
+        <div>
+            Welcome {{displayName | async}}
+        </div>
     </mat-sidenav>
 
     <mat-sidenav-content>

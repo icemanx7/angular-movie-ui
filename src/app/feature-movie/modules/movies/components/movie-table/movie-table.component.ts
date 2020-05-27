@@ -1,13 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Movies, Movie } from '../../models/movies.models';
 
 @Component({
   selector: 'app-movie-table',
   templateUrl: './movie-table.component.html',
   styleUrls: ['./movie-table.component.scss']
 })
-export class MovieTableComponent implements OnInit {
+export class MovieTableComponent implements OnInit, AfterViewInit {
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  dataSource: MatTableDataSource<Movie> = new MatTableDataSource();
+
+  @Input()
+  set movieList(movies: Movie[]) {
+    this.dataSource.data = movies;
+    this.dataSource.paginator = this.paginator;
+  }
+
+
+  displayedColumns = [
+    'title',
+    'year',
+  ];
 
   constructor() { }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+  }
 
   ngOnInit() {
   }

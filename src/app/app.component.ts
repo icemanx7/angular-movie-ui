@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   sideNaveOpened: boolean;
 
   isLoggedIn: Observable<boolean> = this.store.pipe(select(auth.getIsLoggedIn));
+  displayName: Observable<string> = this.store.pipe(select(auth.getDisplayName));
 
   constructor(
     public store: Store<auth.AppState>

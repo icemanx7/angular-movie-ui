@@ -3,6 +3,8 @@ import { Store, select } from '@ngrx/store';
 import * as auth from '../../../auth/reducers';
 import * as fromMovies from '../../../movies/reducers';
 import { LoadMoviesList } from '../../actions/movie.actions';
+import { Movies } from '../../models/movies.models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies-home',
@@ -11,13 +13,14 @@ import { LoadMoviesList } from '../../actions/movie.actions';
 })
 export class MoviesHomeComponent implements OnInit {
 
+  movies$: Observable<Movies> = this.store.pipe(select(fromMovies.getMovies));
+
   constructor(
     public store: Store<auth.AppState>
   ) { }
 
   ngOnInit() {
     this.store.dispatch(LoadMoviesList());
-    this.store.pipe(select(fromMovies.getMovies)).subscribe(movies => console.log('THE MOVIES: ', movies))
   }
 
 }

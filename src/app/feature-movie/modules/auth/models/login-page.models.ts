@@ -7,6 +7,7 @@ export interface UserLoginResponse {
     id: string;
     name: string;
     jwtToken: string;
+    displayName: string;
 }
 
 export interface UserLoginSecrets {

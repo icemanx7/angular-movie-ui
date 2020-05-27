@@ -19,7 +19,6 @@ export class MovieEffects {
         mergeMap(() => this.movieService.loadMoviesList()
             .pipe(
                 map(response => {
-                    console.log('IS EFFECT WORKING   ')
                     return movieActions.LoadMoviesListSuccess(response)
                 }),
                 catchError(() => EMPTY))
