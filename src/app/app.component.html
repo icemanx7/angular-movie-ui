@@ -1,7 +1,14 @@
 <mat-sidenav-container class="side-nav">
     <mat-sidenav class="side-nav-pane" #sidenav mode="side" [(opened)]="sideNaveOpened">
         <div>
-            Welcome {{displayName | async}}
+            <h2 class="side-nav-text">
+                <mat-icon class="movie-icon" aria-hidden="false" aria-label="menu">airplay</mat-icon>
+                rMovie
+            </h2>
+            <mat-divider></mat-divider>
+            <p class="welcome-message">
+                Welcome {{displayName | async}}
+            </p>
         </div>
     </mat-sidenav>
 

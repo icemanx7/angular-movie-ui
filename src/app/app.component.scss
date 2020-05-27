@@ -17,5 +17,28 @@
 
 .side-nav-pane {
     background-color: #673ab7;
+}
 
+.side-nav-text {
+    color: white;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mat-divider {
+    border-top-width: 3px;
+    background-color: #fffccc;
+}
+
+.movie-icon {
+    margin-right: 10px;
+}
+
+.welcome-message {
+    color:white;
+    padding: 5px;
 }
