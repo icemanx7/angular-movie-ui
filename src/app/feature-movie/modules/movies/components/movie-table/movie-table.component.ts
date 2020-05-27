@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Movies, Movie } from '../../models/movies.models';
 
@@ -20,6 +20,9 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  @Output()
+  selectedMovie = new EventEmitter<Movie>();
+
 
   displayedColumns = [
     'title',
@@ -34,6 +37,11 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  }
+
+  clickRow(movie: Movie): void {
+    console.log('is this a movie type: ', movie);
+    this.selectedMovie.emit(movie);
   }
 
 }

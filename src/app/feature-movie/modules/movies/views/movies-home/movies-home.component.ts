@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import * as auth from '../../../auth/reducers';
 import * as fromMovies from '../../../movies/reducers';
 import { LoadMoviesList } from '../../actions/movie.actions';
-import { Movies } from '../../models/movies.models';
+import { Movies, Movie } from '../../models/movies.models';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 export class MoviesHomeComponent implements OnInit {
 
   movies$: Observable<Movies> = this.store.pipe(select(fromMovies.getMovies));
+  selectedMovie: Movie;
 
   constructor(
     public store: Store<auth.AppState>
@@ -21,6 +22,15 @@ export class MoviesHomeComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(LoadMoviesList());
+  }
+
+  setSelectedMovie(movie: Movie): void {
+    console.log('MOVIES: ', movie)
+    this.selectedMovie = movie;
+  }
+
+  get displayMovie(): boolean {
+    return this.selectedMovie ? true : false;
   }
 
 }

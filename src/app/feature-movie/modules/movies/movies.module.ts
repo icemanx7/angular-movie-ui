@@ -6,8 +6,9 @@ import { MovieEffects } from './effects/movies.effects';
 import { EffectsModule } from '@ngrx/effects';
 import * as movieReducer from './reducers/movie.reducer';
 import { MovieTableComponent } from './components/movie-table/movie-table.component';
-import { MatButtonModule, MatSortModule, MatPaginatorModule, MatCardModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatSortModule, MatPaginatorModule, MatCardModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -21,7 +22,10 @@ import { MovieFormComponent } from './components/movie-form/movie-form.component
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class MoviesModule { }

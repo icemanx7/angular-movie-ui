@@ -1,13 +1,34 @@
-<mat-card class="table-card">
-    <!-- Simple card -->
-    <!-- <mat-card-header> -->
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    <mat-card-title-group color="warm">
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-title-group>
-    <!-- </mat-card-header> -->
-    <mat-card-content *ngIf="movies$ | async">
-        <app-movie-table [movieList]="(movies$ | async)?.movies"></app-movie-table>
-    </mat-card-content>
-</mat-card>
+<div fxLayout="row">
+    <div fxFlex="60%">
+        <mat-card class="table-card">
+            <!-- Simple card -->
+            <!-- <mat-card-header> -->
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title-group color="warm">
+                <mat-card-title>Movies List</mat-card-title>
+                <mat-card-subtitle>View all the movies sir</mat-card-subtitle>
+            </mat-card-title-group>
+            <!-- </mat-card-header> -->
+            <mat-card-content *ngIf="movies$ | async">
+                <app-movie-table [movieList]="(movies$ | async)?.movies" (selectedMovie)="setSelectedMovie($event)">
+                </app-movie-table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div fxFlex="40%">
+        <mat-card class="table-card" *ngIf="displayMovie">
+            <!-- Simple card -->
+            <!-- <mat-card-header> -->
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title-group color="warm">
+                <mat-card-title>Time to write a review</mat-card-title>
+                <mat-card-subtitle>Oh Yes!</mat-card-subtitle>
+            </mat-card-title-group>
+            <!-- </mat-card-header> -->
+            <mat-card-content>
+                <app-movie-form [movie]="selectedMovie"></app-movie-form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,1 +1,15 @@
-<p>movie-form works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-form-field>
+        <input matInput placeholder="Movie Title" readonly="true" [(value)]="movie.title">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Release Year" readonly="true" [(value)]="movie.year">
+    </mat-form-field>
+
+</div>
+<div fxLayout="row">
+
+    <mat-form-field>
+        <textarea matInput placeholder="Review"></textarea>
+    </mat-form-field>
+</div>
