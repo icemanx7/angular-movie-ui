@@ -7,11 +7,12 @@ import { EffectsModule } from '@ngrx/effects';
 import * as movieReducer from './reducers/movie.reducer';
 import { MovieTableComponent } from './components/movie-table/movie-table.component';
 import { MatButtonModule, MatSortModule, MatPaginatorModule, MatCardModule, MatTableModule } from '@angular/material';
+import { MovieFormComponent } from './components/movie-form/movie-form.component';
 
 
 
 @NgModule({
-  declarations: [MoviesHomeComponent, MovieTableComponent],
+  declarations: [MoviesHomeComponent, MovieTableComponent, MovieFormComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('movies', movieReducer.reducer),
