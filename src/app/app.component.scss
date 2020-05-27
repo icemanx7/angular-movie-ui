@@ -42,3 +42,20 @@
     color:white;
     padding: 5px;
 }
+
+.mat-expansion-panel {
+    background-color: #673ab7;
+    color: white;
+}
+
+// mat-expansion-panel-header > span.mat-content > mat-panel-title {
+//     color: white;
+// }
+
+.mat-expansion-panel-header-title {
+    color: white
+  }
+
+.mat-panel-title {
+    color: white;
+}
