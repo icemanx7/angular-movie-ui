@@ -17,18 +17,6 @@
     </div>
 
     <div fxFlex="40%">
-        <mat-card class="table-card" *ngIf="displayMovie">
-            <!-- Simple card -->
-            <!-- <mat-card-header> -->
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title-group color="warm">
-                <mat-card-title>Time to write a review</mat-card-title>
-                <mat-card-subtitle>Oh Yes!</mat-card-subtitle>
-            </mat-card-title-group>
-            <!-- </mat-card-header> -->
-            <mat-card-content>
-                <app-movie-form [movie]="selectedMovie"></app-movie-form>
-            </mat-card-content>
-        </mat-card>
+        <app-movie-form *ngIf="displayMovie" [movie]="selectedMovie"></app-movie-form>
     </div>
 </div>
