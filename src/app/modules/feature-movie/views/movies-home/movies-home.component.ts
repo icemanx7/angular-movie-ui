@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import * as auth from '../../../auth/reducers';
-import * as fromMovies from '../../../movies/reducers';
+import * as auth from '../../../feature-auth/reducers';
+import * as fromMovies from '../../reducers';
 import { LoadMoviesList } from '../../actions/movie.actions';
 import { Movies, Movie } from '../../models/movies.models';
 import { Observable } from 'rxjs';

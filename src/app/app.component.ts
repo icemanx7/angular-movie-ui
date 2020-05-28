@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import * as auth from './feature-movie/modules/auth/reducers';
+import * as auth from './modules/feature-auth/reducers';
 import { Observable } from 'rxjs';
 
 @Component({
