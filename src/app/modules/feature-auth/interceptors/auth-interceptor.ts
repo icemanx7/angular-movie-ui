@@ -16,10 +16,9 @@ export class AuthInterceptor implements HttpInterceptor {
       flatMap(loginSecrets => {
         if (loginSecrets.isLoggedIn) {
           const authReq = req.clone({ setHeaders: { Authorization: loginSecrets.jwtToken } });
-          console.log('intercepted request: ', authReq);
           return next.handle(authReq);
         }
-          return next.handle(req);
+        return next.handle(req);
       })
     )
   }

@@ -5,6 +5,7 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 import * as  movieActions from '../actions/movie.actions';
 import { MovieService } from '../services/movie.service';
 import { Action } from '@ngrx/store';
+import { MovieReview } from '../models/movies.models';
 
 @Injectable()
 export class MovieEffects {
@@ -20,6 +21,17 @@ export class MovieEffects {
             .pipe(
                 map(response => {
                     return movieActions.LoadMoviesListSuccess(response)
+                }),
+                catchError(() => EMPTY))
+        ))
+    );
+
+    submitReview$ = createEffect(() => this.actions$.pipe(
+        ofType(movieActions.SubmitMovieReview),
+        mergeMap((action) => this.movieService.submitMovieReview(<MovieReview>action)
+            .pipe(
+                map(response => {
+                    return movieActions.SubmitMovieReviewSuccess(response)
                 }),
                 catchError(() => EMPTY))
         ))

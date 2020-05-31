@@ -1,5 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { Movies, Movie } from '../models/movies.models';
+import { Movies, Movie, MovieReview } from '../models/movies.models';
+
+
+/*
+Make a big enum containinng all the action text for easy and quick changes.
+*/
+
 
 export const LoadMoviesList = createAction(
     '[Movie Page] Load Movies'
@@ -17,5 +23,16 @@ export const LoadMoviesListFailed = createAction(
 
 export const SubmitMovieReview = createAction(
     '[Movie Page: Review Component] Submit Review',
-    props<Movie>()
+    props<MovieReview>()
+);
+
+export const SubmitMovieReviewSuccess = createAction(
+    '[Movie Page: Review Component] Submit Review Success',
+    props<MovieReview>()
+);
+
+
+export const SubmitMovieReviewFailed = createAction(
+    '[Movie Page: Review Component] Submit Review Failed',
+    props<MovieReview>()
 );

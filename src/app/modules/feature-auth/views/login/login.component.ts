@@ -19,12 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(public store: Store<auth.State>) { }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
-  onSubmit() {
-    console.log('Testing if this code actually works')
-    console.log(this.loginForm.value)
+  onSubmit(): void {
     const loginValue = this.loginForm.value as UserLogin;
     this.store.dispatch(Login(loginValue));
   }

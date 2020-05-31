@@ -12,6 +12,11 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  displayedColumns = [
+    'title',
+    'year',
+  ];
+
   dataSource: MatTableDataSource<Movie> = new MatTableDataSource();
 
   @Input()
@@ -23,24 +28,15 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
   @Output()
   selectedMovie = new EventEmitter<Movie>();
 
-
-  displayedColumns = [
-    'title',
-    'year',
-  ];
-
   constructor() { }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
   clickRow(movie: Movie): void {
-    console.log('is this a movie type: ', movie);
     this.selectedMovie.emit(movie);
   }
 

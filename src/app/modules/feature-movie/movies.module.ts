@@ -9,7 +9,7 @@ import { MovieTableComponent } from './components/movie-table/movie-table.compon
 import { MatButtonModule, MatSortModule, MatPaginatorModule, MatCardModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +25,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSortModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MoviesModule { }

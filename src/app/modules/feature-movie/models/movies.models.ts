@@ -7,3 +7,15 @@ export interface Movie {
 export interface Movies {
     movies: Movie[];
 }
+
+export interface MovieReview {
+    review: string;
+    movieID: number;
+    rating: number;
+    reviewDate: Date
+}
+
+export interface ReviewForm {
+    review: string;
+    rating: number;
+}

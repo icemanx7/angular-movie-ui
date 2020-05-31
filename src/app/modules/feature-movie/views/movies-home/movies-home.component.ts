@@ -25,12 +25,10 @@ export class MoviesHomeComponent implements OnInit {
   }
 
   setSelectedMovie(movie: Movie): void {
-    console.log('MOVIES: ', movie)
     this.selectedMovie = movie;
   }
 
   get displayMovie(): boolean {
     return this.selectedMovie ? true : false;
   }
-
 }
