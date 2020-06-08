@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatDividerModule, MatExpansionModule } from '@angular/material';
+import { FeatureReviewsModule } from './modules/feature-reviews/feature-reviews.module';
 
 
 
@@ -36,6 +37,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatDividerModule, Ma
     }),
     AuthModule,
     MoviesModule,
+    FeatureReviewsModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],

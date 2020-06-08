@@ -11,17 +11,18 @@
             </p>
             <mat-accordion>
                 <div fxLayout="column">
-                    <mat-expansion-panel color="primary">
+                    <mat-expansion-panel (click)="routeToHome()" color="primary">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 Home Page
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                     </mat-expansion-panel>
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel (click)="routeToReview()" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Info
+                                My Reviews
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                     </mat-expansion-panel>

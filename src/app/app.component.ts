@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import * as auth from './modules/feature-auth/reducers';
 import { Observable } from 'rxjs';
+
+const REVIEW_ROUTE = 'my-reviews';
+const HOME_ROUTE = 'home';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +22,25 @@ export class AppComponent implements OnInit {
   displayName: Observable<string> = this.store.pipe(select(auth.getDisplayName));
 
   constructor(
-    public store: Store<auth.AppState>
+    public store: Store<auth.AppState>,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
+
+  }
+
+  routeToHome() {
+    console.log('Routing to Review: ')
+    // this.router.navigate(['items'], { relativeTo: this.route });
+    this.router.navigate([HOME_ROUTE]);
+
+  }
+
+  routeToReview() {
+    console.log('Routing to Review: ')
+    // this.router.navigate(['items'], { relativeTo: this.route });
+    this.router.navigate([REVIEW_ROUTE]);
 
   }
 
