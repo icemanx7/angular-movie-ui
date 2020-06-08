@@ -15,6 +15,10 @@ export interface MovieReview {
     reviewDate: Date
 }
 
+export interface UserDetails {
+    username: string;
+}
+
 export interface ReviewForm {
     review: string;
     rating: number;

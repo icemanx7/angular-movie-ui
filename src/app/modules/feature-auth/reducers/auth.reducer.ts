@@ -21,7 +21,7 @@ export const initialState: State = {
 const scoreboardReducer = createReducer(
     initialState,
     on(AuthActions.Login, state => ({ ...state, loading: true })),
-    on(AuthActions.LoginSuccess, (state, action) => ({ ...state, loading: false, loggedIn: true, jwtToken: action.jwtToken, displayName: action.displayName })),
+    on(AuthActions.LoginSuccess, (state, action) => ({ ...state, loading: false, loggedIn: true, jwtToken: action.jwtToken, displayName: action.displayName, name: action.name })),
 );
 
 export function reducer(state: State | undefined, action: Action) {

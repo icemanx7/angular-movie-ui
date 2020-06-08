@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Movies, Movie, MovieReview } from '../models/movies.models';
+import { Movies, UserDetails, MovieReview } from '../models/movies.models';
 
 
 /*
@@ -23,7 +23,7 @@ export const LoadMoviesListFailed = createAction(
 
 export const SubmitMovieReview = createAction(
     '[Movie Page: Review Component] Submit Review',
-    props<MovieReview>()
+    props<MovieReview & UserDetails>()
 );
 
 export const SubmitMovieReviewSuccess = createAction(

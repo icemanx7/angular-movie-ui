@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Movie, MovieReview, ReviewForm } from '../../models/movies.models';
 import * as auth from '../../../feature-auth/reducers';
 import { Store } from '@ngrx/store';
 import { SubmitMovieReview } from '../../actions/movie.actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-movie-form',
   templateUrl: './movie-form.component.html',
@@ -13,7 +13,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class MovieFormComponent implements OnInit {
 
   @Input()
-  movie: Movie
+  movie: Movie;
+
+  @Output()
+  review: EventEmitter<MovieReview> = new EventEmitter<MovieReview>();
 
   reviewForm = new FormGroup({
     review: new FormControl('', Validators.required),
@@ -32,8 +35,8 @@ export class MovieFormComponent implements OnInit {
     }
     const formValues = this.reviewForm.value as ReviewForm;
     const date = new Date();
-    const testReview = { movieID: this.movie.id, review: formValues.review, rating: formValues.rating, reviewDate: date } as MovieReview;
-    this.store.dispatch(SubmitMovieReview(testReview));
+    const movieReviewDTO = { movieID: this.movie.id, review: formValues.review, rating: formValues.rating, reviewDate: date } as MovieReview;
+    this.review.emit(movieReviewDTO)
   }
 
 }

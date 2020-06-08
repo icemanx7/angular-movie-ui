@@ -13,6 +13,6 @@
     </div>
 
     <div fxFlex="40%">
-        <app-movie-form *ngIf="displayMovie" [movie]="selectedMovie"></app-movie-form>
+        <app-movie-form *ngIf="displayMovie" (review)="submitReview($event)" [movie]="selectedMovie"></app-movie-form>
     </div>
 </div>

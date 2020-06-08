@@ -23,3 +23,9 @@ export const getDisplayName = createSelector(
   selectFeature,
   (state: AuthReducer.State) => state.displayName
 );
+
+//Should I store username in JWT Token?
+export const getUserName = createSelector(
+  selectFeature,
+  (state: AuthReducer.State) => state.name
+);
