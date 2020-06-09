@@ -15,5 +15,12 @@ body {
   float: right;
 }
 
+:root {
+  --primary: #673ab7;
+  --warm: #B4B4B5;
+  --accent: #ffd740;
+  --fullwidth: 100%;
+}
+
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

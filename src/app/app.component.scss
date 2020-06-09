@@ -16,7 +16,7 @@
 }
 
 .side-nav-pane {
-    background-color: #673ab7;
+    background-color: var(--primary);
 }
 
 .side-nav-text {
@@ -44,7 +44,7 @@
 }
 
 .mat-expansion-panel {
-    background-color: #673ab7;
+    background-color: var(--primary);
     color: white;
 }
 

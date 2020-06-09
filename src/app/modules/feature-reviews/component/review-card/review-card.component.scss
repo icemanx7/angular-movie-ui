@@ -1,19 +1,20 @@
-.movie-details-field {
-    margin: 5px;
-}
-
 @import '../../../../../styles.scss';
 
 .table-card {
     margin: 40px;
 }
 
+.movie-details-field {
+    margin: 5px;
+}
+
+
 .mat-card {
     margin-top: 16px;
     padding: 0;
     .mat-card-title-group {
         margin: 0px;
-        background-color: #673ab7;
+        background-color: var(--primary);
         color: #ffffff;
         padding: 0px 32px 0px 32px;
     }
