@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/login"
+  to = "http://supermarche-baguette-37677.herokuapp.com/login"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+
+[[redirects]]
+  from = "/movies"
+  to = "http://supermarche-baguette-37677.herokuapp.com/movies"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
