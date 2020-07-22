@@ -9,3 +9,9 @@
   to = "http://supermarche-baguette-37677.herokuapp.com/movies"
   status = 200
   force = true # COMMENT: ensure that we always redirect
+
+[[redirects]]
+  from = "/submitreview"
+  to = "http://supermarche-baguette-37677.herokuapp.com/submitreview"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect

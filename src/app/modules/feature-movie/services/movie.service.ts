@@ -17,9 +17,9 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
   loadMoviesList(): Observable<Movies> {
-    return this.http.get<Movie[]>(this._baseUrlList).pipe(
+    return this.http.get<Movies>(this._baseUrlList).pipe(
       map(resp => {
-        return { movies: resp } as Movies;
+        return { movies: resp.movies } as Movies;
       })
     );
   }
