@@ -31,7 +31,7 @@ import { FeatureReviewsModule } from './modules/feature-reviews/feature-reviews.
     MatExpansionModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
