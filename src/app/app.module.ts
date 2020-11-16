@@ -11,7 +11,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatDividerModule, MatExpansionModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FeatureReviewsModule } from './modules/feature-reviews/feature-reviews.module';
 
 
