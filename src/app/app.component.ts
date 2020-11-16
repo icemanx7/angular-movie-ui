@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   title = 'angular-movie-ui';
 
   sideNaveOpened: boolean;
+  panelOpenState: boolean;
 
   isLoggedIn: Observable<boolean> = this.store.pipe(select(auth.getIsLoggedIn));
   displayName: Observable<string> = this.store.pipe(select(auth.getDisplayName));
