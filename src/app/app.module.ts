@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FeatureReviewsModule } from './modules/feature-reviews/feature-reviews.module';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -44,6 +45,7 @@ import { FeatureReviewsModule } from './modules/feature-reviews/feature-reviews.
     FeatureReviewsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

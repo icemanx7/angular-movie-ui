@@ -1,63 +1,6 @@
-<mat-sidenav-container class="side-nav">
-    <mat-sidenav class="side-nav-pane" #sidenav mode="side" [(opened)]="sideNaveOpened">
-        <div fxLayout="column">
-            <h2 class="side-nav-text">
-                <mat-icon class="movie-icon" aria-hidden="false" aria-label="menu">airplay</mat-icon>
-                rMovie
-            </h2>
-            <mat-divider></mat-divider>
-            <p class="welcome-message">
-                Welcome {{displayName | async}}
-            </p>
-            <mat-accordion>
-                <div fxLayout="column">
-                    <mat-expansion-panel color="primary">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                Home Page
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                Info
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                Games
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                    </mat-expansion-panel>
-                </div>
-            </mat-accordion>
-
-        </div>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-        <div>
-            <mat-toolbar color="primary">
-                <mat-toolbar-row>
-                    <!-- TODO: need to style this -->
-                    <button class="mat-mini-fab" *ngIf="isLoggedIn | async" (click)="sidenav.toggle()" mat-icon-button
-                        aria-label="Button to open side nav">
-                        <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon>
-                    </button>
-                    <span class="space-right"></span>
-                    <!-- <mat-icon mat-card-avatar aria-hidden="false" aria-label="notifications">email</mat-icon> -->
-                    <button class="mat-mini-fab" *ngIf="isLoggedIn | async" mat-icon-button
-                        aria-label="button to view notifications">
-                        <mat-icon aria-hidden="false" aria-label="email">email</mat-icon>
-                    </button>
-                </mat-toolbar-row>
-            </mat-toolbar>
-        </div>
-        <div>
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+</div>

@@ -60,3 +60,13 @@
     color: white;
 }
 
+.rr {
+    height: 900px;
+}
+
+@media only screen and (max-height: 800) {
+    .rr {
+        height: 400px;
+    }
+    
+  }

@@ -1,28 +1,31 @@
-<div fxLayout="row" fxFlex="35%">
-</div>
-<mat-card fxFlex="25%" class="login-form">
-    <div fxLayout="column">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="login-box" fxLayoutAlign="center center">
+    <mat-card fxFlex="35%" class="login-form">
+        <div fxLayout="column">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-            <div fxLayout="row">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username" formControlName="username">
-                </mat-form-field>
-            </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field id="username" appearance="outline">
+                        <mat-label>Username/Email</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="username">
+                        <mat-hint>Enter your Username or Email</mat-hint>
+                    </mat-form-field>
+                </div>
 
-            <div fxLayout="row">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password" type="password" formControlName="password">
-                </mat-form-field>
-            </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field id="password" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="password">
+                        <mat-hint>Enter your password</mat-hint>
+                    </mat-form-field>
+                </div>
 
-            <div class="login-button">
-                <button mat-button type="submit" [disabled]="!loginForm.valid">Login</button>
-            </div>
 
-        </form>
-    </div>
-</mat-card>
+                <div class="login-button">
+                    <button mat-button type="submit" [disabled]="!loginForm.valid">Login</button>
+                </div>
 
-<div fxLayout="row" fxFlex="20%">
+            </form>
+        </div>
+    </mat-card>
+
 </div>
