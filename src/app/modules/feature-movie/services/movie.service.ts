@@ -12,21 +12,20 @@ export class MovieService {
 
   private _baseUrlSingle = '/movie';
   private _baseSubmitReview = '/submitreview';
-  private _baseUrlList = '/movies';
+  private _baseUrlList = '/meta';
 
   constructor(private http: HttpClient) { }
 
   loadMoviesList(): Observable<Movies> {
-    return this.http.get<Movies>(this._baseUrlList).pipe(
+    return this.http.get<Movie[]>(this._baseUrlList).pipe(
       map(resp => {
-        return { movies: resp.movies } as Movies;
+        const moviesList = { movies: resp }
+        return moviesList as Movies;
       })
     );
   }
 
   submitMovieReview(postObj: MovieReview): Observable<MovieReview> {
-    // console.log('DID IT WORK: ', postObj)
-    // const flightObj = { movieID: postObj.movieID, userEmail: postObj.userEmail, review: postObj.review } as MovieReview;
     return this.http.post<MovieReview>(this._baseSubmitReview, postObj).pipe(
       map(resp => {
         return resp;

@@ -14,9 +14,9 @@ import { Observable, Subscription } from 'rxjs';
 export class MoviesHomeComponent implements OnInit, OnDestroy {
 
   selectedMovie: Movie;
+  movies: Movies;
 
   subscriptions: Subscription[] = [];
-  movies$: Observable<Movies> = this.store.pipe(select(fromMovies.getMovies));
   currentUser: UserDetails;
 
   constructor(
@@ -26,10 +26,15 @@ export class MoviesHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.store.dispatch(LoadMoviesList());
+
     const userDetails$ = this.store.pipe(select(auth.getUserName)).subscribe(username => {
-      console.log('USERNAME: ', username);
       this.currentUser = { username: username } as UserDetails;
     })
+
+    const movies = this.store.pipe(select(fromMovies.getMovies)).subscribe(movies => {
+      console.log('MOVIES: ', movies)
+      this.movies = movies;
+    });
     this.subscriptions.push(userDetails$);
   }
 
@@ -37,12 +42,11 @@ export class MoviesHomeComponent implements OnInit, OnDestroy {
     this.selectedMovie = movie;
   }
 
-  submitReview(review: MovieReview) {
-    if (!this.currentUser) {
-      return;
+  get listOfMovies(): Movie[] {
+    if (this.movies && this.movies.movies) {
+      return this.movies.movies;
     }
-    const userReview = { ...review, ...this.currentUser } as MovieReview & UserDetails;
-    this.store.dispatch(SubmitMovieReview(userReview));
+    return null;
   }
 
   get displayMovie(): boolean {

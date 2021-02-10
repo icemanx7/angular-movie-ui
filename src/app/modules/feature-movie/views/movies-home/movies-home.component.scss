@@ -1,25 +1,36 @@
-@import '../../../../../styles.scss';
+// @import '../../../../../styles.scss';
 
-.table-card {
-    margin: 40px;
+// .table-card {
+//     margin: 40px;
+// }
+
+// .mat-card {
+//     margin-top: 16px;
+//     padding: 0;
+//     .mat-card-title-group {
+//         margin: 0px;
+//         background-color: #673ab7;
+//         color: #ffffff;
+//         padding: 0px 32px 0px 32px;
+//     }
+//     .mat-card-actions {
+//         margin: 0px 32px 0px 32px;
+//     }
+//     .mat-card-title {
+//         margin-top: 16px;
+//     }
+//     .mat-card-content {
+//         padding: 10px;
+//     }
+// }
+
+.movie-item {
+    width: 30%;
 }
 
-.mat-card {
-    margin-top: 16px;
-    padding: 0;
-    .mat-card-title-group {
-        margin: 0px;
-        background-color: #673ab7;
-        color: #ffffff;
-        padding: 0px 32px 0px 32px;
-    }
-    .mat-card-actions {
-        margin: 0px 32px 0px 32px;
-    }
-    .mat-card-title {
-        margin-top: 16px;
-    }
-    .mat-card-content {
-        padding: 10px;
-    }
+.layout-row{
+
+    display: flex;
+    align-items: stretch;
+
 }

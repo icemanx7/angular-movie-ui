@@ -12,15 +12,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
-import { MovieTableComponent } from './components/movie-table/movie-table.component';
 import { MovieEffects } from './effects/movies.effects';
 import { MoviesHomeComponent } from './views/movies-home/movies-home.component';
 import * as movieReducer from './reducers/movie.reducer';
-import { MovieFormComponent } from './components/movie-form/movie-form.component';
+import { MovieTemplateComponent } from './components/movie-template/movie-template.component';
 
 
 @NgModule({
-  declarations: [MoviesHomeComponent, MovieTableComponent, MovieFormComponent],
+  declarations: [MoviesHomeComponent, MovieTemplateComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('movies', movieReducer.reducer),

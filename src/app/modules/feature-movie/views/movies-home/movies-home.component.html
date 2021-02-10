@@ -1,18 +1,10 @@
-<div fxLayout="row">
-    <div fxFlex="60%">
-        <mat-card class="table-card">
-            <mat-card-title-group color="warm">
-                <mat-card-title>Movies List</mat-card-title>
-                <mat-card-subtitle>View all the movies sir</mat-card-subtitle>
-            </mat-card-title-group>
-            <mat-card-content *ngIf="movies$ | async">
-                <app-movie-table [movieList]="(movies$ | async)?.movies" (selectedMovie)="setSelectedMovie($event)">
-                </app-movie-table>
-            </mat-card-content>
-        </mat-card>
+<div fxLayout="row wrap">
+
+
+    <div class="movie-item layout-row" *ngFor="let movie of listOfMovies">
+        <div>
+            <app-movie-template [movie]="movie"></app-movie-template>
+        </div>
     </div>
 
-    <div fxFlex="40%">
-        <app-movie-form *ngIf="displayMovie" (review)="submitReview($event)" [movie]="selectedMovie"></app-movie-form>
-    </div>
 </div>
