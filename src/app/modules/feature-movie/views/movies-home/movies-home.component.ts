@@ -5,13 +5,14 @@ import * as fromMovies from '../../reducers';
 import { LoadMoviesList, SubmitMovieReview } from '../../actions/movie.actions';
 import { Movies, Movie, MovieReview, UserDetails } from '../../models/movies.models';
 import { Observable, Subscription } from 'rxjs';
+import { AbstractView } from 'src/app/shared/directives/abstract-view';
 
 @Component({
   selector: 'app-movies-home',
   templateUrl: './movies-home.component.html',
   styleUrls: ['./movies-home.component.scss']
 })
-export class MoviesHomeComponent implements OnInit, OnDestroy {
+export class MoviesHomeComponent extends AbstractView implements OnInit, OnDestroy {
 
   selectedMovie: Movie;
   movies: Movies;
@@ -21,21 +22,29 @@ export class MoviesHomeComponent implements OnInit, OnDestroy {
 
   constructor(
     public store: Store<auth.AppState>
-  ) { }
+  ) { super() }
 
 
   ngOnInit() {
     this.store.dispatch(LoadMoviesList());
 
-    const userDetails$ = this.store.pipe(select(auth.getUserName)).subscribe(username => {
+    const userDetails = this._subscribeToUserDetails();
+    const movieLists = this._subscribeToMovieList();
+
+    this._pushToSubscriptionList(userDetails)
+    this._pushToSubscriptionList(movieLists)
+  }
+
+  private _subscribeToMovieList(): Subscription {
+    return this.store.pipe(select(fromMovies.getMovies)).subscribe(moviesList => {
+      this.movies = moviesList;
+    });
+  }
+
+  private _subscribeToUserDetails(): Subscription {
+    return this.store.pipe(select(auth.getUserName)).subscribe(username => {
       this.currentUser = { username: username } as UserDetails;
     })
-
-    const movies = this.store.pipe(select(fromMovies.getMovies)).subscribe(movies => {
-      console.log('MOVIES: ', movies)
-      this.movies = movies;
-    });
-    this.subscriptions.push(userDetails$);
   }
 
   setSelectedMovie(movie: Movie): void {
@@ -53,7 +62,5 @@ export class MoviesHomeComponent implements OnInit, OnDestroy {
     return this.selectedMovie ? true : false;
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
-  }
+
 }

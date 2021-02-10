@@ -32,15 +32,11 @@ export class AppComponent implements OnInit {
   }
 
   routeToHome() {
-    console.log('Routing to Review: ')
-    // this.router.navigate(['items'], { relativeTo: this.route });
     this.router.navigate([HOME_ROUTE]);
 
   }
 
   routeToReview() {
-    console.log('Routing to Review: ')
-    // this.router.navigate(['items'], { relativeTo: this.route });
     this.router.navigate([REVIEW_ROUTE]);
 
   }
