@@ -1,1 +1,4 @@
-<p>navbar works!</p>
+<div *ngIf="loggedIn" class="topnav">
+    <a class="active" [routerLink]="['/home']">Movies</a>
+    <a href="#liked-movies">My Liked Movies</a>
+</div>
