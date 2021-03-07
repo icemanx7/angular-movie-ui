@@ -1,5 +1,5 @@
 import { Action, createAction, props } from '@ngrx/store';
-import { Movies, UserDetails, MovieReview } from '../models/movies.models';
+import { Movies, UserDetails, MovieReview, Movie } from '../models/movies.models';
 
 
 /*
@@ -15,6 +15,11 @@ export enum ActionTypes {
     SUBMIT_MOVIE_REVIEW = '[Movie Page] Submit Movie Review',
     SUBMIT_MOVIE_REVIEW_SUCCESS = '[Movie Page] Submit Movie Review Success',
     SUBMIT_MOVIE_REVIEW_FAILED = '[Movie Page]  Submit Movie Review Failed',
+
+
+    LIKE_MOVIE = '[Movie Page] Like Movie',
+    LIKE_MOVIE_SUCCESS = '[Movie Page] Like Movie Success',
+    LIKE_MOVIE_FAILED = '[Movie Page] Like Movie Failed',
 
     // LOGIN_REDIRECT = '[Auth] Login Redirect',
     // LOGIN_DISPLAY_LOGOUT = '[Auth] Login Display Logout',
@@ -131,10 +136,34 @@ export class SubmitMovieReviewFailed implements Action {
 //     props<MovieReview>()
 // );
 
+export class LikeMovie implements Action {
+
+    readonly type = ActionTypes.LIKE_MOVIE;
+
+    constructor(public payload: Movie) { }
+}
+
+export class LikeMovieSuccess implements Action {
+
+    readonly type = ActionTypes.LIKE_MOVIE_SUCCESS;
+
+    constructor(public payload?: any) { }
+}
+
+export class LikeMovieFailed implements Action {
+
+    readonly type = ActionTypes.LIKE_MOVIE_FAILED;
+
+    constructor(public payload?: any) { }
+}
+
 export type Actions =
     LoadMoviesList |
     LoadMoviesListSuccess |
     LoadMoviesListFailed |
     SubmitMovieReview |
     SubmitMovieReviewSuccess |
-    SubmitMovieReviewFailed
+    SubmitMovieReviewFailed |
+    LikeMovie |
+    LikeMovieSuccess |
+    LikeMovieFailed

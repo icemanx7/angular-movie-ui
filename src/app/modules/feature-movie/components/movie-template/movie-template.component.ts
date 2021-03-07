@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { MovieActions } from '../../actions';
 import { Movie } from '../../models/movies.models';
+import * as fromMovies from '../../reducers';
 
 @Component({
   selector: 'app-movie-template',
@@ -11,10 +14,17 @@ export class MovieTemplateComponent implements OnInit {
   @Input()
   movie: Movie;
 
-  constructor() { }
+  constructor(
+    public store: Store<fromMovies.AppState>
+  ) { }
 
   ngOnInit(): void {
     console.log('Single Movie: ', this.movie)
+  }
+
+  likeMovie(): void {
+    console.log('liking the damn movie')
+    this.store.dispatch(new MovieActions.LikeMovie(this.movie))
   }
 
 }

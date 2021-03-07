@@ -16,3 +16,4 @@ export const getIsLoadingMovies = createSelector(
   getMovieState,
   (state) => state.loading
 );
+

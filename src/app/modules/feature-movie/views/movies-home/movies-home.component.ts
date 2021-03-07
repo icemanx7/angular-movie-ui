@@ -35,18 +35,6 @@ export class MoviesHomeComponent extends AbstractView implements OnInit, OnDestr
     this._pushToSubscriptionList(movieLists)
   }
 
-  private _subscribeToMovieList(): Subscription {
-    return this.store.pipe(select(fromMovies.getMovies)).subscribe(moviesList => {
-      this.movies = moviesList;
-    });
-  }
-
-  private _subscribeToUserDetails(): Subscription {
-    return this.store.pipe(select(auth.getUserName)).subscribe(username => {
-      this.currentUser = { username: username } as UserDetails;
-    })
-  }
-
   setSelectedMovie(movie: Movie): void {
     this.selectedMovie = movie;
   }
@@ -62,5 +50,16 @@ export class MoviesHomeComponent extends AbstractView implements OnInit, OnDestr
     return this.selectedMovie ? true : false;
   }
 
+  private _subscribeToMovieList(): Subscription {
+    return this.store.pipe(select(fromMovies.getMovies)).subscribe(moviesList => {
+      this.movies = moviesList;
+    });
+  }
+
+  private _subscribeToUserDetails(): Subscription {
+    return this.store.pipe(select(auth.getUserName)).subscribe(username => {
+      this.currentUser = { username: username } as UserDetails;
+    })
+  }
 
 }
