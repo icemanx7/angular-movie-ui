@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@ngrx/store';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import * as authSelects from '../../.././../modules/feature-auth/reducers';
+import * as fromMovies from '../../.././../modules/feature-movie/reducers';
 
 
 @Component({
@@ -26,10 +27,15 @@ export class NavbarComponent implements OnInit {
     return this.isLoggedIn;
   }
 
+
   private _subscribeToLoggedIn(): Subscription {
     return this.store.pipe(select(authSelects.getIsLoggedIn)).subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
+  }
+
+  getNumberOfLikedMovies(): Observable<number> {
+    return this.store.pipe(select(fromMovies.getNumberOfLikedMovies));
   }
 
   private _pushToSubscriptionList(sub: Subscription): void {

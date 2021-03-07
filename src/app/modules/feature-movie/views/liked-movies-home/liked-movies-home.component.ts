@@ -41,7 +41,7 @@ export class LikedMoviesHomeComponent extends AbstractView implements OnInit {
   }
 
   get listOfMovies(): Movie[] {
-    if (this.movies && this.movies) {
+    if (this.movies) {
       return this.movies;
     }
     return null;

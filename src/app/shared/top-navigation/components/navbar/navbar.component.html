@@ -1,4 +1,8 @@
 <div *ngIf="loggedIn" class="topnav">
     <a [routerLink]="['/home']">Movies</a>
-    <a [routerLink]="['/liked-movies']">My Liked Movies</a>
+    <a [routerLink]="['/liked-movies']">
+        My Liked Movies
+        <mat-icon class="badge-icon" [matBadge]="getNumberOfLikedMovies() | async" matBadgeOverlap="false">
+        </mat-icon>
+    </a>
 </div>
