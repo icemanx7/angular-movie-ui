@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './modules/feature-auth/views/login/login.component';
 import { MoviesHomeComponent } from './modules/feature-movie/views/movies-home/movies-home.component';
 import { AuthGuard } from './modules/feature-auth/auth.guard';
+import { LikedMoviesHomeComponent } from './modules/feature-movie/views/liked-movies-home/liked-movies-home.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   },
   {
     path: 'home', component: MoviesHomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'liked-movies', component: LikedMoviesHomeComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -1,0 +1,9 @@
+<div fxLayout="row wrap">
+
+    <div class="movie-item layout-row" *ngFor="let movie of listOfMovies">
+        <div>
+            <app-movie-template [movie]="movie"></app-movie-template>
+        </div>
+    </div>
+
+</div>

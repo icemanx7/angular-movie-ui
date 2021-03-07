@@ -17,3 +17,8 @@ export const getIsLoadingMovies = createSelector(
   (state) => state.loading
 );
 
+export const getLikedMovies = createSelector(
+  getMovieState,
+  (state) => state.likedMovies
+);
+

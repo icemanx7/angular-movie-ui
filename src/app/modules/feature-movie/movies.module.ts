@@ -16,10 +16,11 @@ import { MovieEffects } from './effects/movies.effects';
 import { MoviesHomeComponent } from './views/movies-home/movies-home.component';
 import * as movieReducer from './reducers/movie.reducer';
 import { MovieTemplateComponent } from './components/movie-template/movie-template.component';
+import { LikedMoviesHomeComponent } from './views/liked-movies-home/liked-movies-home.component';
 
 
 @NgModule({
-  declarations: [MoviesHomeComponent, MovieTemplateComponent],
+  declarations: [MoviesHomeComponent, MovieTemplateComponent, LikedMoviesHomeComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('movies', movieReducer.reducer),
