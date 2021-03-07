@@ -1,5 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import * as MovieActions from '../actions/movie.actions';
+import { MovieActions } from '../actions';
 import { Movies } from '../models/movies.models';
 
 export interface MovieState {
@@ -12,13 +11,31 @@ export const initialState: MovieState = {
     movieList: null
 };
 
+export function reducer(
+    state = initialState,
+    action: MovieActions.Actions
+): MovieState {
 
-const movieReducer = createReducer(
-    initialState,
-    on(MovieActions.LoadMoviesList, state => ({ ...state, loading: true })),
-    on(MovieActions.LoadMoviesListSuccess, (state, action) => ({ ...state, loading: false, movieList: action })),
-);
+    switch (action.type) {
 
-export function reducer(state: MovieState | undefined, action: Action) {
-    return movieReducer(state, action);
+        case MovieActions.ActionTypes.LOAD_MOVIE_LIST: {
+            return {
+                ...state,
+                loading: true
+            };
+        }
+
+        case MovieActions.ActionTypes.LOAD_MOVIE_LIST_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                movieList: action.payload
+            };
+        }
+
+        default:
+            return state;
+
+    }
+
 }

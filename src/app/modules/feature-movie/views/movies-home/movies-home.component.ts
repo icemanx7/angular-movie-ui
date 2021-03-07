@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import * as auth from '../../../feature-auth/reducers';
 import * as fromMovies from '../../reducers';
-import { LoadMoviesList, SubmitMovieReview } from '../../actions/movie.actions';
+import { MovieActions } from '../../actions';
 import { Movies, Movie, MovieReview, UserDetails } from '../../models/movies.models';
 import { Observable, Subscription } from 'rxjs';
 import { AbstractView } from 'src/app/shared/directives/abstract-view';
@@ -26,7 +26,7 @@ export class MoviesHomeComponent extends AbstractView implements OnInit, OnDestr
 
 
   ngOnInit() {
-    this.store.dispatch(LoadMoviesList());
+    this.store.dispatch(new MovieActions.LoadMoviesList());
 
     const userDetails = this._subscribeToUserDetails();
     const movieLists = this._subscribeToMovieList();

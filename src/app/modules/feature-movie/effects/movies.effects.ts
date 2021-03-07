@@ -1,37 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
-import { EMPTY, Observable } from 'rxjs';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
+import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import * as  movieActions from '../actions/movie.actions';
+import { MovieActions } from '../actions';
 import { MovieService } from '../services/movie.service';
-import { Action } from '@ngrx/store';
 import { MovieReview } from '../models/movies.models';
 
 @Injectable()
 export class MovieEffects {
 
     constructor(
-        private movieService: MovieService,
-        private actions$: Actions
+        private readonly movieService: MovieService,
+        private readonly actions$: Actions
     ) { }
 
     loadMovies$ = createEffect(() => this.actions$.pipe(
-        ofType(movieActions.LoadMoviesList),
+        ofType(MovieActions.ActionTypes.LOAD_MOVIE_LIST),
         mergeMap(() => this.movieService.loadMoviesList()
             .pipe(
                 map(response => {
-                    return movieActions.LoadMoviesListSuccess(response)
+                    return new MovieActions.LoadMoviesListSuccess(response)
                 }),
                 catchError(() => EMPTY))
         ))
     );
 
     submitReview$ = createEffect(() => this.actions$.pipe(
-        ofType(movieActions.SubmitMovieReview),
+        ofType(MovieActions.ActionTypes.SUBMIT_MOVIE_REVIEW),
         mergeMap((action) => this.movieService.submitMovieReview(<MovieReview>action)
             .pipe(
                 map(response => {
-                    return movieActions.SubmitMovieReviewSuccess(response)
+                    return new MovieActions.SubmitMovieReviewSuccess(response)
                 }),
                 catchError(() => EMPTY))
         ))
