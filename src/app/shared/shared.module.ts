@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { TopNavigationModule } from './top-navigation/top-navigation.module';
 
 
 
 @NgModule({
-  declarations: [ToolbarComponent, NavigationComponent],
-  exports: [NavigationComponent],
+  declarations: [ToolbarComponent],
+  exports: [TopNavigationModule],
   imports: [
     CommonModule
   ]

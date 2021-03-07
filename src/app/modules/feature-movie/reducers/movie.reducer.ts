@@ -1,6 +1,6 @@
 import { MovieActions } from '../actions';
 import { Movies, Movie } from '../models/movies.models';
-import { MovieSet, MovieSetItem } from '../../../shared/extensions/myset';
+import { MovieSet } from '../../../shared/extensions/myset';
 
 export interface MovieState {
     loading: boolean;
