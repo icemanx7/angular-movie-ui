@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import * as AuthActions from '../actions/login-page.actions';
+import { AuthActions } from '../actions';
 
 export interface State {
     loggedIn: boolean;
@@ -18,12 +18,25 @@ export const initialState: State = {
 };
 
 
-const scoreboardReducer = createReducer(
+const authReducer = createReducer(
     initialState,
-    on(AuthActions.Login, state => ({ ...state, loading: true })),
-    on(AuthActions.LoginSuccess, (state, action) => ({ ...state, loading: false, loggedIn: true, jwtToken: action.jwtToken, displayName: action.displayName, name: action.name })),
+
+    on(AuthActions.Login, state => (
+        { ...state, loading: true }
+    )),
+
+    on(AuthActions.LoginSuccess, (state, action) => (
+        {
+            ...state,
+            loading: false,
+            loggedIn: true,
+            jwtToken: action.jwtToken,
+            displayName: action.displayName,
+            name: action.name
+        })),
 );
 
+
 export function reducer(state: State | undefined, action: Action) {
-    return scoreboardReducer(state, action);
+    return authReducer(state, action);
 }

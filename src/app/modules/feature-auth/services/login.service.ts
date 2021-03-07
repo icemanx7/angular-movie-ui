@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UserLogin, UserLoginResponse } from '../models/login-page.models';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,10 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  private _baseUrl = '/login';
-  constructor(private http: HttpClient) { }
+  private readonly _baseUrl = '/login';
+
+  constructor(private readonly http: HttpClient) { }
 
   login(userLogin: UserLogin): Observable<UserLoginResponse> {
-    return this.http.post<UserLoginResponse>(this._baseUrl, { username:userLogin.username, password: userLogin.password });
+    return this.http.post<UserLoginResponse>(this._baseUrl,
+      {
+        username: userLogin.username,
+        password: userLogin.password
+      });
   }
 }
