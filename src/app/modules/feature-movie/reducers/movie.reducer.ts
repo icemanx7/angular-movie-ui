@@ -1,55 +1,43 @@
 import { MovieActions } from '../actions';
 import { Movies, Movie } from '../models/movies.models';
 import { MovieSet } from '../../../shared/extensions/myset';
+import { Action, createReducer, on } from '@ngrx/store';
+import * as Immutable from 'immutable'
 
 export interface MovieState {
     loading: boolean;
     movieList: Movies;
-    likedMovies: Movie[];
+    likedMovies: Immutable.Set<Movie>;
 }
 
 export const initialState: MovieState = {
     loading: false,
     movieList: null,
-    likedMovies: []
+    likedMovies: Immutable.Set<Movie>()
 };
 
-export function reducer(
-    state = initialState,
-    action: MovieActions.Actions
-): MovieState {
+const movieReducer = createReducer(
+    initialState,
 
-    switch (action.type) {
+    on(MovieActions.LoadMoviesList, state => (
+        { ...state, loading: true }
+    )),
 
-        case MovieActions.ActionTypes.LOAD_MOVIE_LIST: {
-            return {
-                ...state,
-                loading: true
-            };
-        }
+    on(MovieActions.LoadMoviesListSuccess, (state, action) => (
+        {
+            ...state,
+            loading: false,
+            movieList: action
+        })),
 
-        case MovieActions.ActionTypes.LOAD_MOVIE_LIST_SUCCESS: {
-            return {
-                ...state,
-                loading: false,
-                movieList: action.payload
-            };
-        }
+    on(MovieActions.LikeMovie, (state, action) => (
+        {
+            ...state,
+            loading: false,
+            likedMovies: state.likedMovies.add(new Movie(action))
+        })),
+);
 
-        case MovieActions.ActionTypes.LIKE_MOVIE: {
-            const movieSet = new MovieSet<Movie>();
-            state.likedMovies.forEach(movie => movieSet.add(new Movie(movie)));
-            const likedMovieSet = movieSet.add(new Movie(action.payload));
-            const linkedMovieArray = Array.from(likedMovieSet)
-            return {
-                ...state,
-                likedMovies: linkedMovieArray
-            }
-        }
-
-        default:
-            return state;
-
-    }
-
+export function reducer(state: MovieState | undefined, action: Action) {
+    return movieReducer(state, action);
 }

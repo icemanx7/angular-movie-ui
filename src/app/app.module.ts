@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from './shared/shared.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -33,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
     MatDividerModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatProgressBarModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),

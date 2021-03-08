@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 
   isLoggedIn: Observable<boolean> = this.store.pipe(select(auth.getIsLoggedIn));
   displayName: Observable<string> = this.store.pipe(select(auth.getDisplayName));
+  loading$: Observable<boolean> = this.store.pipe(select(auth.getLoadingLogin));
 
   constructor(
     public store: Store<auth.AppState>,

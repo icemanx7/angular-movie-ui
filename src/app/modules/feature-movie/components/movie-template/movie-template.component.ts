@@ -23,7 +23,7 @@ export class MovieTemplateComponent implements OnInit {
   }
 
   likeMovie(): void {
-    this.store.dispatch(new MovieActions.LikeMovie(this.movie))
+    this.store.dispatch(MovieActions.LikeMovie(this.movie))
   }
 
 }

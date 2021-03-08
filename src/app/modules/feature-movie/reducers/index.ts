@@ -24,5 +24,5 @@ export const getLikedMovies = createSelector(
 
 export const getNumberOfLikedMovies = createSelector(
   getMovieState,
-  (state) => state.likedMovies ? state.likedMovies.length : 0
+  (state) => state.likedMovies ? state.likedMovies.size : 0
 );

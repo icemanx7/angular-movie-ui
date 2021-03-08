@@ -15,24 +15,14 @@ export class MovieEffects {
     ) { }
 
     loadMovies$ = createEffect(() => this.actions$.pipe(
-        ofType(MovieActions.ActionTypes.LOAD_MOVIE_LIST),
+        ofType(MovieActions.LoadMoviesList),
         mergeMap(() => this.movieService.loadMoviesList()
             .pipe(
                 map(response => {
-                    return new MovieActions.LoadMoviesListSuccess(response)
+                    return MovieActions.LoadMoviesListSuccess(response)
                 }),
                 catchError(() => EMPTY))
         ))
     );
 
-    submitReview$ = createEffect(() => this.actions$.pipe(
-        ofType(MovieActions.ActionTypes.SUBMIT_MOVIE_REVIEW),
-        mergeMap((action) => this.movieService.submitMovieReview(<MovieReview>action)
-            .pipe(
-                map(response => {
-                    return new MovieActions.SubmitMovieReviewSuccess(response)
-                }),
-                catchError(() => EMPTY))
-        ))
-    );
 }

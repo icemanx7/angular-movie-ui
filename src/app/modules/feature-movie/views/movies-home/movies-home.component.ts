@@ -26,7 +26,7 @@ export class MoviesHomeComponent extends AbstractView implements OnInit, OnDestr
 
 
   ngOnInit() {
-    this.store.dispatch(new MovieActions.LoadMoviesList());
+    this.store.dispatch(MovieActions.LoadMoviesList());
 
     const userDetails = this._subscribeToUserDetails();
     const movieLists = this._subscribeToMovieList();

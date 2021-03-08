@@ -29,3 +29,9 @@ export const getUserName = createSelector(
   selectFeature,
   (state: AuthReducer.State) => state.name
 );
+
+
+export const getLoadingLogin = createSelector(
+  selectFeature,
+  (state: AuthReducer.State) => state.loading
+);

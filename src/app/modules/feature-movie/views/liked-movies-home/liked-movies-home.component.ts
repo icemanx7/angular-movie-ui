@@ -27,7 +27,7 @@ export class LikedMoviesHomeComponent extends AbstractView implements OnInit {
 
 
   ngOnInit() {
-    this.store.dispatch(new MovieActions.LoadMoviesList());
+    this.store.dispatch(MovieActions.LoadMoviesList());
 
     const userDetails = this._subscribeToUserDetails();
     const movieLists = this._subscribeToMovieList();
@@ -53,7 +53,7 @@ export class LikedMoviesHomeComponent extends AbstractView implements OnInit {
 
   private _subscribeToMovieList(): Subscription {
     return this.store.pipe(select(fromMovies.getLikedMovies)).subscribe(moviesList => {
-      this.movies = moviesList;
+      this.movies = moviesList.toArray();
     });
   }
 
