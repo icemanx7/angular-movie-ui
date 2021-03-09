@@ -1,6 +1,5 @@
 import { MovieActions } from '../actions';
 import { Movies, Movie } from '../models/movies.models';
-import { MovieSet } from '../../../shared/extensions/myset';
 import { Action, createReducer, on } from '@ngrx/store';
 import * as Immutable from 'immutable'
 

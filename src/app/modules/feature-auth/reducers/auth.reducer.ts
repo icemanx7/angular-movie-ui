@@ -1,6 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { AuthActions } from '../actions';
-
 export interface State {
     loggedIn: boolean;
     loading: boolean;
@@ -16,7 +15,6 @@ export const initialState: State = {
     name: null,
     displayName: null
 };
-
 
 const authReducer = createReducer(
     initialState,
@@ -35,7 +33,6 @@ const authReducer = createReducer(
             name: action.name
         })),
 );
-
 
 export function reducer(state: State | undefined, action: Action) {
     return authReducer(state, action);
